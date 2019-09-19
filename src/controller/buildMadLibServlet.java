@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.MadLib;
 
@@ -41,8 +42,13 @@ public class buildMadLibServlet extends HttpServlet {
 		//String authorFirstName = userMadLib.getTempFirstName();
 		//String authorLastName = userMadLib.getTempLastName();
 		
-		String authorFirstName = request.getParameter("authorFirstName");
-		String authorLastName = request.getParameter("authorLastName");
+		// Receive the stored data in the Session() file that was set from the getMadLibServlet
+		HttpSession session = request.getSession();
+		String authorFirstName = (String) session.getAttribute("authorFirstName");
+		String authorLastName = (String) session.getAttribute("authorLastName");
+		
+		//String authorFirstName = request.getParameter("authorFirstName");
+		//String authorLastName = request.getParameter("authorLastName");
 		
 		userMadLib.setFirstName(authorFirstName);
 		userMadLib.setLastName(authorLastName);

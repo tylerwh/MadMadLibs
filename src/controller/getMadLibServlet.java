@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.MadLib;
 
@@ -26,7 +27,7 @@ public class getMadLibServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
     
-    MadLib userMadLib = new MadLib();
+    //MadLib userMadLib = new MadLib();
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
@@ -43,6 +44,14 @@ public class getMadLibServlet extends HttpServlet {
 		
 		request.setAttribute("authorFirstName", authorFirstName);
 		request.setAttribute("authorLastName", authorLastName);
+		
+		// Thanks to Zixuan Herting for posting this helpful info on the blackboard discussion forum
+		// I was having a similar issue but was struggling to ask the right question when researching
+		// The HttpSession helps by storing the data in the session which makes it accessible to other
+		// servlets.
+		HttpSession session = request.getSession();
+		session.setAttribute("authorFirstName", authorFirstName);
+		session.setAttribute("authorLastName", authorLastName);
 		
 		request.getServletContext().getRequestDispatcher("/createMadLib.jsp").forward(request, response);
 		

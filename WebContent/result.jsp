@@ -9,12 +9,12 @@
 </head>
 <body>
 	<h1 style="text-align: center;">Mad MadLib, friend!</h1><br><br>
-	<p>${userMadLib.getCharacterName() } is sick with the <br>
+	<p style="text-align: center;">${userMadLib.getCharacterName() } is sick with the <br>
 	${userMadLib.getBodyPart() } flu. Drink more ${userMadLib.getLiquid() } <br>
 	and take ${userMadLib.getSubstance() } as needed.
 	</p>
 	<br>
-	<p>Author: ${userMadLib.getFirstName() } ${userMadLib.getLastName() }
+	<p style="text-align: center;">Author: ${userMadLib.getFirstName() } ${userMadLib.getLastName() }
 	</p>
 
 </body>
