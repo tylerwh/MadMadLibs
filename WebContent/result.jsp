@@ -15,6 +15,9 @@
 	</p>
 	<br>
 	<p style="text-align: center;">Author: ${userMadLib.getFirstName() } ${userMadLib.getLastName() }
+		<br>
+		<br>
+		<a href="index.jsp">Want to play again? Click here!</a>
 	</p>
 
 </body>
